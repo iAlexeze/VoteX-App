@@ -1,0 +1,16 @@
+{
+  "name": "node-mariadb-bar-chart",
+  "version": "1.0.0",
+  "description": "Fetch data from MariaDB and render it in a bar chart using Node.js",
+  "main": "result.js",
+  "scripts": {
+    "start": "node result.js"
+  },
+  "dependencies": {
+    "chart.js": "^3.5.0",
+    "express": "^4.17.1",
+    "html-pdf": "^3.0.1",
+    "mysql": "^2.18.1",
+    "puppeteer": "^20.5.0"
+  }
+}

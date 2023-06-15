@@ -1,0 +1,119 @@
+VoteX - The Brand Voting App
+
+VoteX is a brand voting application that allows users to register and vote for their favorite brands. This interactive app provides a platform for brand enthusiasts to express their preferences and see the results in real-time. The top three brands currently contesting are Apple, Samsung, and Tecno.
+
+Key Features
+
+User Registration: Users can easily register on the platform using their personal information.
+
+Brand Voting: Registered users can cast their votes for their preferred brand among the available options.
+
+Real-time Results: The app provides real-time updates on the vote counts for each brand.
+
+User Insights: Voters can access the Result App to view how they voted, ensuring transparency and accountability.
+
+Admin Dashboard: The Admin App offers administrators an overview of the voting process, including vote counts for each candidate and a list of users who voted.
+
+Architecture
+
+VoteX follows a client-server architecture with a MariaDB database for data storage. The server-side is implemented using Node.js and Express.js to handle HTTP requests and interact with the database. The client-side utilizes HTML, CSS, and JavaScript for the user interface, while Chart.js is employed to visualize the voting results in an intuitive chart format.
+
+The app consists of the following components:
+
+vote.py - The voting app running on port 5000, allowing users to register and cast their votes.
+result.js - The result app running on port 3000, providing voters with insights into their voting choices and displaying the vote counts for each candidate.
+admin.js - The admin app running on port 2000, offering administrators access to the admin dashboard, which displays the vote counts for candidates and the list of users who voted.
+MariaDB - The relational database management system used for storing user information, vote counts, and candidate data.
+Usage
+
+To run the VoteX application locally, follow these steps:
+
+Clone the repository: git clone https://github.com/your-username/votex-app.git
+Install the necessary dependencies by running npm install in the project directory.
+Set up the MariaDB database and update the connection details in the code.
+Start the voting app: python vote.py
+Start the result app: node result.js
+Start the admin app: node admin.js
+Access the voting app in your web browser at http://localhost:5000.
+Access the result app in your web browser at http://localhost:3000.
+Access the admin app in your web browser at http://localhost:2000.
+Running VoteX in a Kubernetes Cluster
+To deploy the VoteX application in a Kubernetes cluster, you can use the provided Docker images hosted on DockerHub. Follow the steps below to get started:
+
+Prerequisites
+
+A running Kubernetes cluster
+
+kubectl command-line tool configured to access your cluster
+
+Deployment Steps
+
+Clone the VoteX repository: git clone https://github.com/your-username/votex-app.git
+
+Navigate to the project directory: cd votex-app
+
+Vote App Deployment
+
+Create a Kubernetes deployment for the Vote App using the ialexeze/votexapp:vote image:
+
+kubectl create deployment vote-app --image=ialexeze/votexapp:vote --port=5000
+
+Expose the Vote App deployment as a service:
+
+kubectl expose deployment vote-app --type=LoadBalancer --port=5000
+This will create a LoadBalancer service that exposes the Vote App on an external IP address.
+
+Result App Deployment
+Create a Kubernetes deployment for the Result App using the ialexeze/votexapp:result image:
+
+kubectl create deployment result-app --image=ialexeze/votexapp:result --port=3000
+
+Expose the Result App deployment as a service:
+
+kubectl expose deployment result-app --type=LoadBalancer --port=3000
+This will create a LoadBalancer service that exposes the Result App on an external IP address.
+
+Admin App Deployment
+Create a Kubernetes deployment for the Admin App using the ialexeze/votexapp:admin image:
+
+kubectl create deployment admin-app --image=ialexeze/votexapp:admin --port=2000
+
+Expose the Admin App deployment as a service:
+
+kubectl expose deployment admin-app --type=LoadBalancer --port=2000
+
+This will create a LoadBalancer service that exposes the Admin App on an external IP address.
+
+Accessing the Applications
+To access the Vote App, use the external IP address of the Vote App service on port 5000.
+
+To access the Result App, use the external IP address of the Result App service on port 3000.
+
+To access the Admin App, use the external IP address of the Admin App service on port 2000.
+
+Cleanup
+To delete the deployments and services created for the VoteX application, use the following commands:
+
+kubectl delete service vote-app
+kubectl delete deployment vote-app
+
+kubectl delete service result-app
+kubectl delete deployment result-app
+
+kubectl delete service admin-app
+kubectl delete deployment admin-app
+
+That's it! You have successfully deployed the VoteX application in a Kubernetes cluster using the provided Docker images. Enjoy the brand voting experience!
+
+Contributors
+Alex Eze
+
+License
+This project is licensed under the MIT License.
+
+VoteX is an engaging brand voting app that empowers users to make their voices heard. Join the community and cast your vote for your favorite brand today!
+
+
+
+
+
